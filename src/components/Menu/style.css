@@ -1,5 +1,33 @@
 .Menu {
+  font-size: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.Menu__dropdown,
+.Menu__link {
+  padding: 7px 13px;
+}
+
+.Menu__dropdown-sub {
+  list-style: none;
+  margin: 0 0 0 10px;
+  padding: 0;
+}
+
+.Menu__link {
+  color: #fff;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.Menu__link:hover {
+  background: #fff;
+  color: #d91b1b;
+}
+
+.Menu__link--disabled {
+  color: #979797;
+  pointer-events: none;
 }

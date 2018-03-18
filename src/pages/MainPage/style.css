@@ -1,0 +1,26 @@
+.MainPage {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.MainPage__wrapper {
+  display: flex;
+}
+
+.MainPage__content {
+  margin-left: 30px;
+}
+
+.MainPage__intro {
+  padding-left: 30px;
+  border-left: 8px solid #fff;
+}
+
+.MainPage__sub {
+  margin-top: 85px;
+  padding-left: 38px;
+}
+
+.MainPage__header {
+  margin: 0 0 45px;
+}
