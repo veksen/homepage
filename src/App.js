@@ -11,7 +11,8 @@ class App extends Component {
         <div className="App__wrapper">
           <Switch>
             <Route exact path="/" component={MainPage} />
-            <Route path="/photography" component={PhotoPage} />
+            <Route exact path="/photography/" component={PhotoPage} />
+            <Route path="/photography/:category" component={PhotoPage} />
           </Switch>
         </div>
       </div>

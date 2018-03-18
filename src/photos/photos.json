@@ -1,6 +1,7 @@
 [
   {
     "filename": "VXN_0673.jpg",
+    "category": "sports",
     "settings": {
       "focalLength": "24mm",
       "apertureSpeed": "1/640s",
@@ -11,6 +12,7 @@
   },
   {
     "filename": "VXN_1515.jpg",
+    "category": "sports",
     "settings": {
       "focalLength": "24mm",
       "apertureSpeed": "1/640s",
@@ -21,6 +23,7 @@
   },
   {
     "filename": "VXN_1815.jpg",
+    "category": "landscape",
     "settings": {
       "focalLength": "24mm",
       "apertureSpeed": "1/640s",
