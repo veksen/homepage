@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import photos from "../../photos/photos.json";
 import PhotoSlider from "../../components/PhotoSlider";
 import Header from "../../components/Header";
-import Arrow from "../../icons/Arrow";
 import EmbeddedMenu from "../../components/EmbeddedMenu";
+import PhotoMenu from "../../components/PhotoMenu";
 
 class PhotoPage extends Component {
   constructor() {
@@ -36,25 +35,7 @@ class PhotoPage extends Component {
               right: "75px"
             }}
           >
-            <div className="Header__menu">
-              <div className="Header__menu-item Header__menu-item--back">
-                <Arrow direction="left" /> back
-              </div>
-
-              {categories.map(category => {
-                return (
-                  <Link
-                    key={category}
-                    to={`/photography/${category}`}
-                    className={classnames("Header__menu-item", {
-                      "Header__menu-item--active": category === currentCategory
-                    })}
-                  >
-                    {category}
-                  </Link>
-                );
-              })}
-            </div>
+            <PhotoMenu categories={categories} currentCategory={currentCategory} />
           </Header>
 
           <PhotoSlider
