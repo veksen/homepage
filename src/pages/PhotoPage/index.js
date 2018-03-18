@@ -46,7 +46,9 @@ class PhotoPage extends Component {
                   <Link
                     key={category}
                     to={`/photography/${category}`}
-                    className={`Header__menu-item ${category === currentCategory ? "Header__menu-item--active" : ""}`}
+                    className={classnames("Header__menu-item", {
+                      "Header__menu-item--active": category === currentCategory
+                    })}
                   >
                     {category}
                   </Link>

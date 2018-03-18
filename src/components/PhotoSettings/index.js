@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classnames from "classnames";
 import "./style.css";
 
 class PhotoSettings extends Component {
@@ -6,7 +7,7 @@ class PhotoSettings extends Component {
     const { visible } = this.props;
     const { focalLength, apertureSpeed, apertureLength, iso, lens } = this.props.settings;
     return (
-      <div className={`PhotoSettings ${visible ? "PhotoSettings--visible" : ""}`}>
+      <div className={classnames("PhotoSettings", { "PhotoSettings--visible": visible })}>
         <div className="PhotoSettings__setting">{focalLength}</div>
         <div className="PhotoSettings__setting">{apertureSpeed}</div>
         <div className="PhotoSettings__setting">{apertureLength}</div>
