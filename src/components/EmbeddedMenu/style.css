@@ -8,6 +8,7 @@
   width: 91px;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .EmbeddedMenu .Menu {
