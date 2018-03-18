@@ -63,6 +63,13 @@
   left: 10px;
 }
 
+.PhotoSlider__count {
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  margin-top: 5px;
+}
+
 .PhotoSlider__toggle-settings {
   position: absolute;
   top: 100%;

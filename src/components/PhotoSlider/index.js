@@ -46,6 +46,9 @@ class PhotoSlider extends Component {
           <div className="PhotoSlider__next" onClick={() => this.next()}>
             <Arrow />
           </div>
+          <div className="PhotoSlider__count">
+            {currentIndex + 1} / {photos.length}
+          </div>
 
           {photos.map(photo => {
             const image = require(`../../photos/${photo.filename}`);
