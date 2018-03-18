@@ -18,14 +18,8 @@ class EmbeddedMenu extends Component {
   render() {
     const { opened } = this.state;
     return (
-      <div
-        {...this.props}
-        className={`EmbeddedMenu ${opened ? "EmbeddedMenu--opened" : ""}`}
-      >
-        <div
-          className="EmbeddedMenu__burger-wrapper"
-          onClick={() => this.open()}
-        >
+      <div {...this.props} className={`EmbeddedMenu ${opened ? "EmbeddedMenu--opened" : ""}`}>
+        <div className="EmbeddedMenu__burger-wrapper" onClick={() => this.open()}>
           <Burger />
         </div>
         <Menu />

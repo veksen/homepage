@@ -20,10 +20,8 @@ class MainPage extends Component {
                 </span>
               </h2>
               <p>
-                I'm <strong>Jean-Philippe Sirois</strong>, a full-stack web
-                developer based in beautiful Montrea, Canada. My hobbies and
-                interests include mountain biking, snowboarding, photography,
-                and design.
+                I'm <strong>Jean-Philippe Sirois</strong>, a full-stack web developer based in beautiful Montrea,
+                Canada. My hobbies and interests include mountain biking, snowboarding, photography, and design.
               </p>
             </div>
             <div className="MainPage__sub">

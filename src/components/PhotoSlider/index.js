@@ -36,17 +36,11 @@ class PhotoSlider extends Component {
 
     return (
       <div {...this.props} className="PhotoSlider">
-        <div
-          className="PhotoSlider__toggle-settings"
-          onClick={() => this.toggleSettings()}
-        >
+        <div className="PhotoSlider__toggle-settings" onClick={() => this.toggleSettings()}>
           toggle settings
         </div>
         <div className="PhotoSlider__wrapper">
-          <div
-            className="PhotoSlider__previous"
-            onClick={() => this.previous()}
-          >
+          <div className="PhotoSlider__previous" onClick={() => this.previous()}>
             <Arrow direction="left" />
           </div>
           <div className="PhotoSlider__next" onClick={() => this.next()}>
@@ -56,16 +50,9 @@ class PhotoSlider extends Component {
           {photos.map(photo => {
             const image = require(`../../photos/${photo.filename}`);
             return (
-              <div
-                key={photo.filename}
-                className="PhotoSlider__item"
-                style={{ left: `-${currentIndex * 100}%` }}
-              >
+              <div key={photo.filename} className="PhotoSlider__item" style={{ left: `-${currentIndex * 100}%` }}>
                 <img className="PhotoSlider__photo" src={image} alt="" />
-                <PhotoSettings
-                  settings={photo.settings}
-                  visible={showSettings}
-                />
+                <PhotoSettings settings={photo.settings} visible={showSettings} />
               </div>
             );
           })}

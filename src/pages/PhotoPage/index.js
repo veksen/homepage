@@ -26,9 +26,7 @@ class PhotoPage extends Component {
 
     return (
       <div className="PhotoPage">
-        <EmbeddedMenu
-          style={{ position: "absolute", top: "260px", zIndex: "10" }}
-        />
+        <EmbeddedMenu style={{ position: "absolute", top: "260px", zIndex: "10" }} />
         <div className="PhotoPage__wrapper">
           <Header
             style={{
@@ -48,11 +46,7 @@ class PhotoPage extends Component {
                   <Link
                     key={category}
                     to={`/photography/${category}`}
-                    className={`Header__menu-item ${
-                      category === currentCategory
-                        ? "Header__menu-item--active"
-                        : ""
-                    }`}
+                    className={`Header__menu-item ${category === currentCategory ? "Header__menu-item--active" : ""}`}
                   >
                     {category}
                   </Link>
@@ -69,13 +63,7 @@ class PhotoPage extends Component {
               left: "75px",
               right: "75px"
             }}
-            photos={
-              currentCategory
-                ? photos.filter(
-                    photo => photo.category === this.state.currentCategory
-                  )
-                : photos
-            }
+            photos={currentCategory ? photos.filter(photo => photo.category === this.state.currentCategory) : photos}
           />
         </div>
       </div>
