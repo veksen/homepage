@@ -15,7 +15,7 @@ class PhotoPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      currentCategory: nextProps.match.params.category
+      currentCategory: nextProps.match.params.category || null
     });
   }
 
