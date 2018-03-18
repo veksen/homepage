@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import "./style.css";
 import Arrow from "../../icons/Arrow";
+import PhotoSettings from "../PhotoSettings";
 
 class PhotoSlider extends Component {
   constructor() {
     super();
     this.state = {
-      currentIndex: 0
+      currentIndex: 0,
+      showSettings: false
     };
   }
 
@@ -24,12 +26,22 @@ class PhotoSlider extends Component {
     this.setState({ currentIndex: nextIndex });
   }
 
+  toggleSettings() {
+    this.setState({ showSettings: !this.state.showSettings });
+  }
+
   render() {
     const { photos } = this.props;
-    const { currentIndex } = this.state;
+    const { currentIndex, showSettings } = this.state;
 
     return (
       <div {...this.props} className="PhotoSlider">
+        <div
+          className="PhotoSlider__toggle-settings"
+          onClick={() => this.toggleSettings()}
+        >
+          toggle settings
+        </div>
         <div className="PhotoSlider__wrapper">
           <div
             className="PhotoSlider__previous"
@@ -40,6 +52,7 @@ class PhotoSlider extends Component {
           <div className="PhotoSlider__next" onClick={() => this.next()}>
             <Arrow />
           </div>
+
           {photos.map(photo => {
             const image = require(`../../photos/${photo.filename}`);
             return (
@@ -49,6 +62,10 @@ class PhotoSlider extends Component {
                 style={{ left: `-${currentIndex * 100}%` }}
               >
                 <img className="PhotoSlider__photo" src={image} alt="" />
+                <PhotoSettings
+                  settings={photo.settings}
+                  visible={showSettings}
+                />
               </div>
             );
           })}

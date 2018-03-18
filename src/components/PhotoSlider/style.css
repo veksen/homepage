@@ -62,3 +62,19 @@
 .PhotoSlider__previous {
   left: 10px;
 }
+
+.PhotoSlider__toggle-settings {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #d91b1b;
+  color: #fff;
+  padding: 12px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.PhotoSlider__toggle-settings:hover {
+  background: #920000;
+}

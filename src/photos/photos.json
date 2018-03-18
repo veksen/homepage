@@ -1,5 +1,32 @@
 [
-  { "filename": "VXN_0673.jpg" },
-  { "filename": "VXN_1515.jpg" },
-  { "filename": "VXN_1815.jpg" }
+  {
+    "filename": "VXN_0673.jpg",
+    "settings": {
+      "focalLength": "24mm",
+      "apertureSpeed": "1/640s",
+      "apertureLength": "f/4",
+      "iso": "100",
+      "lens": "Nikkor 24-70 2.8E"
+    }
+  },
+  {
+    "filename": "VXN_1515.jpg",
+    "settings": {
+      "focalLength": "24mm",
+      "apertureSpeed": "1/640s",
+      "apertureLength": "f/4",
+      "iso": "100",
+      "lens": "Nikkor 24-70 2.8E"
+    }
+  },
+  {
+    "filename": "VXN_1815.jpg",
+    "settings": {
+      "focalLength": "24mm",
+      "apertureSpeed": "1/640s",
+      "apertureLength": "f/4",
+      "iso": "100",
+      "lens": "Nikkor 24-70 2.8E"
+    }
+  }
 ]
