@@ -65,6 +65,7 @@ class PhotoPage extends Component {
             style={{
               position: "absolute",
               marginTop: "160px",
+              marginBottom: "60px",
               left: "75px",
               right: "75px"
             }}
