@@ -1,0 +1,8 @@
+.PhotoPage__wrapper {
+  position: relative;
+}
+
+.PhotoPage__header,
+.PhotoPage__photo-slider {
+  position: absolute;
+}

@@ -1,0 +1,31 @@
+.EmbeddedMenu {
+  display: flex;
+  flex-direction: column;
+  min-width: 91px;
+}
+
+.EmbeddedMenu__burger-wrapper {
+  width: 91px;
+  display: flex;
+  justify-content: center;
+}
+
+.EmbeddedMenu .Menu {
+  display: none;
+  margin-left: 91px;
+  background: #333;
+  padding: 10px;
+}
+
+.EmbeddedMenu--opened .Menu {
+  display: block;
+}
+
+.EmbeddedMenu svg {
+  width: 40px;
+  height: 40px;
+}
+
+.EmbeddedMenu path {
+  fill: #fff;
+}

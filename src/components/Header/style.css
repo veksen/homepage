@@ -1,4 +1,24 @@
 .Header {
   margin-top: 110px;
   margin-bottom: 35px;
+  display: flex;
+}
+
+.Header__menu {
+  margin-left: 20px;
+  display: flex;
+  font-size: 20px;
+}
+
+.Header__menu-item + .Header__menu-item {
+  margin-left: 55px;
+}
+
+.Header__menu-item--back svg {
+  width: 15px;
+  height: 15px;
+}
+
+.Header__menu-item--back path {
+  fill: #fff;
 }

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import logo from "../../logo.png";
 import "./style.css";
+import Logo from "../Logo";
 
 class Header extends Component {
   render() {
     return (
-      <div className="Header">
-        <img src={logo} alt="" />
+      <div {...this.props} className="Header">
+        <Logo />
+        {this.props.children}
       </div>
     );
   }

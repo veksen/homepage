@@ -19,6 +19,11 @@
   height: 50px;
 }
 
+.Social__link .Social__arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
 .Social__link path {
   fill: #fff;
 }
