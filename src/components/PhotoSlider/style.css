@@ -3,12 +3,62 @@
   margin: 0 16px;
 }
 
+.PhotoSlider__wrapper {
+  display: flex;
+  overflow: hidden;
+}
+
 .PhotoSlider__item {
   display: block;
-  max-width: 100%;
+  flex: 0 0 100%;
+  position: relative;
+  transition: all 0.3s;
 }
 
 .PhotoSlider__photo {
   display: block;
   max-width: 100%;
+  user-select: none;
+}
+
+.PhotoSlider__next,
+.PhotoSlider__previous {
+  cursor: pointer;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: #1d1d1d;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.PhotoSlider__next svg,
+.PhotoSlider__previous svg {
+  width: 20px;
+  height: 20px;
+}
+
+.PhotoSlider__next path,
+.PhotoSlider__previous path {
+  fill: #fff;
+}
+
+.PhotoSlider:hover .PhotoSlider__next,
+.PhotoSlider:hover .PhotoSlider__previous {
+  opacity: 1;
+}
+
+.PhotoSlider__next {
+  right: 10px;
+}
+
+.PhotoSlider__previous {
+  left: 10px;
 }
