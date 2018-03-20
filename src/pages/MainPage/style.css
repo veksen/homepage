@@ -5,6 +5,7 @@
 
 .MainPage__wrapper {
   display: flex;
+  margin-bottom: 60px;
 }
 
 .MainPage__content {
