@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import Burger from "../../icons/Burger";
+import Cross from "../../icons/Cross";
 import Menu from "../Menu";
 import "./style.css";
 
@@ -19,9 +20,12 @@ class EmbeddedMenu extends Component {
   render() {
     const { opened } = this.state;
     return (
-      <div {...this.props} className={classnames("EmbeddedMenu", { "EmbeddedMenu--opened": opened })}>
+      <div
+        {...this.props}
+        className={classnames("EmbeddedMenu", this.props.className, { "EmbeddedMenu--opened": opened })}
+      >
         <div className="EmbeddedMenu__burger-wrapper" onClick={() => this.open()}>
-          <Burger />
+          {opened ? <Cross /> : <Burger />}
         </div>
         <Menu />
       </div>

@@ -8,8 +8,24 @@
   margin-bottom: 60px;
 }
 
+@media screen and (max-width: 767px) {
+  .MainPage__wrapper {
+    margin-top: 60px;
+  }
+
+  .MainPage__wrapper .Menu {
+    display: none;
+  }
+}
+
 .MainPage__content {
   margin-left: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .MainPage__content {
+    margin: 0 30px;
+  }
 }
 
 .MainPage__intro {
@@ -17,9 +33,22 @@
   border-left: 8px solid #fff;
 }
 
+@media screen and (max-width: 767px) {
+  .MainPage__intro {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
 .MainPage__sub {
   margin-top: 85px;
   padding-left: 38px;
+}
+
+@media screen and (max-width: 767px) {
+  .MainPage__sub {
+    padding-left: 0;
+  }
 }
 
 .MainPage__header {

@@ -4,6 +4,18 @@
   min-width: 91px;
 }
 
+.EmbeddedMenu--PhotoPage {
+  position: absolute;
+  top: 260px;
+  z-index: 10;
+}
+
+@media screen and (max-width: 767px) {
+  .EmbeddedMenu--PhotoPage {
+    display: none;
+  }
+}
+
 .EmbeddedMenu__burger-wrapper {
   width: 91px;
   display: flex;

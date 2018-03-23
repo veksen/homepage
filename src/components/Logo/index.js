@@ -3,7 +3,11 @@ import logo from "../../logo.png";
 
 class Logo extends Component {
   render() {
-    return <img src={logo} alt="" />;
+    return (
+      <div {...this.props}>
+        <img src={logo} alt="" />
+      </div>
+    );
   }
 }
 

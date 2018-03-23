@@ -1,6 +1,19 @@
 .PhotoSlider {
   max-width: 100vw;
-  margin: 0 16px;
+  margin: 160px 16px 60px;
+  position: absolute;
+  left: 75px;
+  right: 75px;
+}
+
+@media screen and (max-width: 767px) {
+  .PhotoSlider {
+    left: 0;
+    right: 0;
+    margin-top: 30px;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .PhotoSlider__wrapper {
