@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Hammer from "react-hammerjs";
 import classnames from "classnames";
 import "./style.css";
@@ -17,7 +17,6 @@ class PhotoSlider extends Component {
 
   previous = () => {
     const { currentIndex } = this.state;
-    const { photos } = this.props;
 
     if (currentIndex !== 0) {
       this.setState({ currentIndex: currentIndex - 1 });
