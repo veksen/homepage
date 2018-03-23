@@ -19,6 +19,7 @@
   display: block;
   max-width: 100%;
   user-select: none;
+  pointer-events: none; /* necessary to not consume the swipe */
 }
 
 .PhotoSlider__next,
@@ -84,4 +85,10 @@
 
 .PhotoSlider__toggle-settings:hover {
   background: #920000;
+}
+
+.PhotoSlider__outer-wrapper {
+  display: flex;
+  overflow: hidden;
+  flex-wrap: nowrap;
 }

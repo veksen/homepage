@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import Hammer from "react-hammerjs";
 import "./style.css";
 import Arrow from "../../icons/Arrow";
 import PhotoSettings from "../PhotoSettings";
@@ -8,23 +9,47 @@ class PhotoSlider extends Component {
     super();
     this.state = {
       currentIndex: 0,
-      showSettings: false
+      showSettings: false,
+      slideOffset: 0
     };
   }
 
-  previous() {
+  previous = () => {
     const { currentIndex } = this.state;
     const { photos } = this.props;
     const previous = currentIndex === 0 ? photos.length - 1 : currentIndex - 1;
     this.setState({ currentIndex: previous });
-  }
+  };
 
-  next() {
+  next = () => {
     const { currentIndex } = this.state;
     const { photos } = this.props;
     const nextIndex = photos.length === currentIndex + 1 ? 0 : currentIndex + 1;
     this.setState({ currentIndex: nextIndex });
-  }
+  };
+
+  onPan = e => {
+    const photoWidth = this.photo.clientWidth;
+    const draggedPercent = e.deltaX * 2 / photoWidth;
+
+    this.setState({ slideOffset: draggedPercent * 100 });
+
+    if (draggedPercent > 0.3333) {
+      this.hammerComponent.hammer.stop();
+      this.setState({ slideOffset: 0 });
+      this.next();
+    }
+
+    if (draggedPercent < -0.3333) {
+      this.hammerComponent.hammer.stop();
+      this.setState({ slideOffset: 0 });
+      this.previous();
+    }
+  };
+
+  onPanEnd = e => {
+    this.setState({ slideOffset: 0 });
+  };
 
   toggleSettings() {
     this.setState({ showSettings: !this.state.showSettings });
@@ -32,7 +57,7 @@ class PhotoSlider extends Component {
 
   render() {
     const { photos } = this.props;
-    const { currentIndex, showSettings } = this.state;
+    const { currentIndex, showSettings, slideOffset } = this.state;
 
     return (
       <div {...this.props} className="PhotoSlider">
@@ -46,19 +71,28 @@ class PhotoSlider extends Component {
           <div className="PhotoSlider__next" onClick={() => this.next()}>
             <Arrow />
           </div>
+
           <div className="PhotoSlider__count">
             {currentIndex + 1} / {photos.length}
           </div>
 
-          {photos.map(photo => {
-            const image = require(`../../photos/${photo.filename}`);
-            return (
-              <div key={photo.filename} className="PhotoSlider__item" style={{ left: `-${currentIndex * 100}%` }}>
-                <img className="PhotoSlider__photo" src={image} alt="" />
-                <PhotoSettings settings={photo.settings} visible={showSettings} />
-              </div>
-            );
-          })}
+          <Hammer onPan={this.onPan} onPanEnd={this.onPanEnd} ref={instance => (this.hammerComponent = instance)}>
+            <section className="PhotoSlider__outer-wrapper">
+              {photos.map(photo => {
+                const image = require(`../../photos/${photo.filename}`);
+                return (
+                  <div
+                    key={photo.filename}
+                    className="PhotoSlider__item"
+                    style={{ left: `-${currentIndex * 100 + slideOffset}%` }}
+                  >
+                    <img className="PhotoSlider__photo" src={image} alt="" ref={el => (this.photo = el)} />
+                    <PhotoSettings settings={photo.settings} visible={showSettings} />
+                  </div>
+                );
+              })}
+            </section>
+          </Hammer>
         </div>
       </div>
     );
