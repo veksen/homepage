@@ -20,7 +20,7 @@ class MainPage extends Component {
                 </span>
               </h2>
               <p>
-                I'm <strong>Jean-Philippe Sirois</strong>, a full-stack web developer based in beautiful Montrea,
+                I'm <strong>Jean-Philippe Sirois</strong>, a full-stack web developer based in beautiful Montreal,
                 Canada. My hobbies and interests include mountain biking, snowboarding, photography, and design.
               </p>
             </div>
