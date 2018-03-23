@@ -64,6 +64,11 @@
   left: 10px;
 }
 
+.PhotoSlider--on-first .PhotoSlider__previous,
+.PhotoSlider--on-last .PhotoSlider__next {
+  opacity: 0 !important;
+}
+
 .PhotoSlider__count {
   position: absolute;
   top: 100%;

@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Hammer from "react-hammerjs";
+import classnames from "classnames";
 import "./style.css";
 import Arrow from "../../icons/Arrow";
 import PhotoSettings from "../PhotoSettings";
@@ -17,15 +18,19 @@ class PhotoSlider extends Component {
   previous = () => {
     const { currentIndex } = this.state;
     const { photos } = this.props;
-    const previous = currentIndex === 0 ? photos.length - 1 : currentIndex - 1;
-    this.setState({ currentIndex: previous });
+
+    if (currentIndex !== 0) {
+      this.setState({ currentIndex: currentIndex - 1 });
+    }
   };
 
   next = () => {
     const { currentIndex } = this.state;
     const { photos } = this.props;
-    const nextIndex = photos.length === currentIndex + 1 ? 0 : currentIndex + 1;
-    this.setState({ currentIndex: nextIndex });
+
+    if (currentIndex + 1 < photos.length) {
+      this.setState({ currentIndex: currentIndex + 1 });
+    }
   };
 
   onPan = e => {
@@ -60,7 +65,13 @@ class PhotoSlider extends Component {
     const { currentIndex, showSettings, slideOffset } = this.state;
 
     return (
-      <div {...this.props} className="PhotoSlider">
+      <div
+        {...this.props}
+        className={classnames("PhotoSlider", {
+          "PhotoSlider--on-first": currentIndex === 0,
+          "PhotoSlider--on-last": currentIndex + 1 === photos.length
+        })}
+      >
         <div className="PhotoSlider__toggle-settings" onClick={() => this.toggleSettings()}>
           toggle settings
         </div>
