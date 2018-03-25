@@ -1,8 +1,8 @@
 .Header {
-  margin-top: 110px;
+  margin-top: 20px;
   margin-bottom: 35px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 @media screen and (max-width: 767px) {
@@ -13,7 +13,13 @@
     padding: 0 30px;
     align-items: center;
   }
+}
 
+.Header__logo {
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
   .Header__logo img {
     max-height: 100px;
   }
@@ -22,8 +28,8 @@
 .Header--PhotoPage {
   position: absolute;
   z-index: 5;
-  left: 75px;
-  right: 75px;
+  left: 96px;
+  right: 0;
 }
 
 @media screen and (max-width: 767px) {
@@ -66,12 +72,15 @@
 }
 
 .Header__menu {
-  margin-left: 20px;
+  background: #333;
+  padding-left: 20px;
   display: flex;
   font-size: 20px;
   margin-top: 2px;
   height: 48px;
   align-items: center;
+  flex: 1 0 auto;
+  margin-left: -15px;
 }
 
 @media screen and (max-width: 767px) {

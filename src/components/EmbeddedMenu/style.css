@@ -5,8 +5,11 @@
 }
 
 .EmbeddedMenu--PhotoPage {
+  display: flex;
+  flex-direction: row;
   position: absolute;
-  top: 260px;
+  top: 154px;
+  left: 20px;
   z-index: 10;
 }
 
@@ -18,15 +21,17 @@
 
 .EmbeddedMenu__burger-wrapper {
   width: 91px;
+  height: 91px;
+  background: #333;
   display: flex;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
 .EmbeddedMenu .Menu {
   display: none;
-  margin-left: 91px;
-  background: #333;
+  background: #525252;
   padding: 10px;
 }
 
