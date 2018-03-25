@@ -1,4 +1,4 @@
-.PhotoSlider {
+.PhotoSlider__outer-wrapper {
   max-width: 100vw;
   margin: 160px 16px 60px;
   position: absolute;
@@ -7,13 +7,37 @@
 }
 
 @media screen and (max-width: 767px) {
-  .PhotoSlider {
+  .PhotoSlider__outer-wrapper {
     left: 0;
     right: 0;
     margin-top: 30px;
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+.PhotoSlider__full {
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.28;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.PhotoSlider__full-photo {
+  flex: 1 0 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  filter: blur(5px);
+  transition: all 0.3s;
 }
 
 .PhotoSlider__wrapper {
@@ -105,7 +129,7 @@
   background: #920000;
 }
 
-.PhotoSlider__outer-wrapper {
+.PhotoSlider__inner-wrapper {
   display: flex;
   overflow: hidden;
   flex-wrap: nowrap;

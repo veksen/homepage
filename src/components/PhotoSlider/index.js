@@ -71,38 +71,52 @@ class PhotoSlider extends Component {
           "PhotoSlider--on-last": currentIndex + 1 === photos.length
         })}
       >
-        <div className="PhotoSlider__toggle-settings" onClick={() => this.toggleSettings()}>
-          toggle settings
+        <div class="PhotoSlider__full">
+          {photos.map(photo => {
+            const image = require(`../../photos/${photo.filename}`);
+            return (
+              <div
+                className="PhotoSlider__full-photo"
+                style={{ backgroundImage: `url(${image})`, left: `-${currentIndex * 100 - slideOffset}%` }}
+              />
+            );
+          })}
         </div>
-        <div className="PhotoSlider__wrapper">
-          <div className="PhotoSlider__previous" onClick={() => this.previous()}>
-            <Arrow direction="left" />
-          </div>
-          <div className="PhotoSlider__next" onClick={() => this.next()}>
-            <Arrow />
-          </div>
 
-          <div className="PhotoSlider__count">
-            {currentIndex + 1} / {photos.length}
+        <div className="PhotoSlider__outer-wrapper">
+          <div className="PhotoSlider__toggle-settings" onClick={() => this.toggleSettings()}>
+            toggle settings
           </div>
+          <div className="PhotoSlider__wrapper">
+            <div className="PhotoSlider__previous" onClick={() => this.previous()}>
+              <Arrow direction="left" />
+            </div>
+            <div className="PhotoSlider__next" onClick={() => this.next()}>
+              <Arrow />
+            </div>
 
-          <Hammer onPan={this.onPan} onPanEnd={this.onPanEnd} ref={instance => (this.hammerComponent = instance)}>
-            <section className="PhotoSlider__outer-wrapper">
-              {photos.map(photo => {
-                const image = require(`../../photos/${photo.filename}`);
-                return (
-                  <div
-                    key={photo.filename}
-                    className="PhotoSlider__item"
-                    style={{ left: `-${currentIndex * 100 - slideOffset}%` }}
-                  >
-                    <img className="PhotoSlider__photo" src={image} alt="" ref={el => (this.photo = el)} />
-                    <PhotoSettings settings={photo.settings} visible={showSettings} />
-                  </div>
-                );
-              })}
-            </section>
-          </Hammer>
+            <div className="PhotoSlider__count">
+              {currentIndex + 1} / {photos.length}
+            </div>
+
+            <Hammer onPan={this.onPan} onPanEnd={this.onPanEnd} ref={instance => (this.hammerComponent = instance)}>
+              <section className="PhotoSlider__inner-wrapper">
+                {photos.map(photo => {
+                  const image = require(`../../photos/${photo.filename}`);
+                  return (
+                    <div
+                      key={photo.filename}
+                      className="PhotoSlider__item"
+                      style={{ left: `-${currentIndex * 100 - slideOffset}%` }}
+                    >
+                      <img className="PhotoSlider__photo" src={image} alt="" ref={el => (this.photo = el)} />
+                      <PhotoSettings settings={photo.settings} visible={showSettings} />
+                    </div>
+                  );
+                })}
+              </section>
+            </Hammer>
+          </div>
         </div>
       </div>
     );
