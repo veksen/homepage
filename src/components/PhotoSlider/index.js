@@ -38,13 +38,13 @@ class PhotoSlider extends Component {
 
     this.setState({ slideOffset: draggedPercent * 100 });
 
-    if (draggedPercent > 0.3333) {
+    if (draggedPercent < -0.3333) {
       this.hammerComponent.hammer.stop();
       this.setState({ slideOffset: 0 });
       this.next();
     }
 
-    if (draggedPercent < -0.3333) {
+    if (draggedPercent > 0.3333) {
       this.hammerComponent.hammer.stop();
       this.setState({ slideOffset: 0 });
       this.previous();
@@ -94,7 +94,7 @@ class PhotoSlider extends Component {
                   <div
                     key={photo.filename}
                     className="PhotoSlider__item"
-                    style={{ left: `-${currentIndex * 100 + slideOffset}%` }}
+                    style={{ left: `-${currentIndex * 100 - slideOffset}%` }}
                   >
                     <img className="PhotoSlider__photo" src={image} alt="" ref={el => (this.photo = el)} />
                     <PhotoSettings settings={photo.settings} visible={showSettings} />
