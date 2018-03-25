@@ -11,7 +11,7 @@ class PhotoSettings extends Component {
         <div className="PhotoSettings__setting">{focalLength}</div>
         <div className="PhotoSettings__setting">{apertureSpeed}</div>
         <div className="PhotoSettings__setting">{apertureLength}</div>
-        <div className="PhotoSettings__setting">{iso}</div>
+        <div className="PhotoSettings__setting">ISO {iso}</div>
         <div className="PhotoSettings__setting">{lens}</div>
       </div>
     );
