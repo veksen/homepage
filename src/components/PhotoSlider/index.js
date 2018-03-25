@@ -65,7 +65,6 @@ class PhotoSlider extends Component {
 
     return (
       <div
-        {...this.props}
         className={classnames("PhotoSlider", {
           "PhotoSlider--on-first": currentIndex === 0,
           "PhotoSlider--on-last": currentIndex + 1 === photos.length
