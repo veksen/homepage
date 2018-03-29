@@ -22,9 +22,6 @@ const SocialIcon = ({ name }) => {
     )
   };
 
-  console.log(name);
-  console.log(slugifiedName);
-
   return (
     <svg className="Social__icon" viewBox="0 0 512 512">
       {icons[slugifiedName]}
