@@ -20,7 +20,7 @@ class PhotoPage extends Component {
   }
 
   render() {
-    const categories = ["sports", "landscape"];
+    const categories = ["sports"];
     const { currentCategory } = this.state;
 
     return (
