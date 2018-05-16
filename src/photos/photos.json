@@ -3,21 +3,21 @@
     "filename": "VXN_0673.jpg",
     "category": "sports",
     "settings": {
-      "focalLength": "24mm",
-      "apertureSpeed": "1/640s",
-      "apertureLength": "f/4",
-      "iso": "100",
-      "lens": "Nikkor 24-70 2.8E"
+      "focalLength": "70mm",
+      "apertureSpeed": "1/500s",
+      "apertureLength": "f/2.8",
+      "iso": "320",
+      "lens": "Nikkor 70-200 2.8 VRII"
     }
   },
   {
     "filename": "VXN_1515.jpg",
     "category": "sports",
     "settings": {
-      "focalLength": "24mm",
-      "apertureSpeed": "1/640s",
-      "apertureLength": "f/4",
-      "iso": "100",
+      "focalLength": "48mm",
+      "apertureSpeed": "1/60s",
+      "apertureLength": "f/7.1",
+      "iso": "64",
       "lens": "Nikkor 24-70 2.8E"
     }
   },
