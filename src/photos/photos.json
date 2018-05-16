@@ -31,5 +31,27 @@
       "iso": "100",
       "lens": "Nikkor 24-70 2.8E"
     }
+  },
+  {
+    "filename": "DSC_6366.jpg",
+    "category": "sports",
+    "settings": {
+      "focalLength": "165mm",
+      "apertureSpeed": "1/1600s",
+      "apertureLength": "f/2.8",
+      "iso": "200",
+      "lens": "Nikkor 70-200 2.8 VRII"
+    }
+  },
+  {
+    "filename": "DSC_4976.jpg",
+    "category": "sports",
+    "settings": {
+      "focalLength": "70mm",
+      "apertureSpeed": "1/30s",
+      "apertureLength": "f/14",
+      "iso": "80",
+      "lens": "Nikkor 70-200 2.8 VRII"
+    }
   }
 ]
