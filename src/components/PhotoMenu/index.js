@@ -8,9 +8,9 @@ class PhotoMenu extends Component {
     const { categories, currentCategory } = this.props;
     return (
       <div className="Header__menu">
-        <div className="Header__menu-item Header__menu-item--back">
+        <Link to="/" className="Header__menu-item Header__menu-item--back">
           <Arrow direction="left" /> back
-        </div>
+        </Link>
 
         {categories.map(category => {
           return (
