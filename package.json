@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "raven-js": "^3.24.2",
+    "raven-js": "^3.25.2",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-ga": "^2.5.0",
