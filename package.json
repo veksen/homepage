@@ -15,7 +15,7 @@
     "raven-js": "^3.25.2",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-ga": "^2.5.0",
+    "react-ga": "^2.5.3",
     "react-hammerjs": "^1.0.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4"
