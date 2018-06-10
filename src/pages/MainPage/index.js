@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from "react";
 import Social from "../../components/Social";
 import Header from "../../components/Header";

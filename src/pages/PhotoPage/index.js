@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from "react";
 import photos from "../../photos/photos.json";
 import PhotoSlider from "../../components/PhotoSlider";

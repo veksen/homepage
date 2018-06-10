@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from "react";
 import { Switch, Route } from "react-router";
 import "./App.css";
