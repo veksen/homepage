@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import logo from "../../logo.png";
+import { default as SVGLogo } from "../../icons/Logo";
 
 type Props = {
   className?: string
@@ -11,7 +11,7 @@ class Logo extends Component<Props> {
   render() {
     return (
       <div {...this.props}>
-        <img src={logo} alt="" />
+        <SVGLogo />
       </div>
     );
   }

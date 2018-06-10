@@ -17,6 +17,7 @@
 
 .Header__logo {
   position: relative;
+  left: -6px;
   z-index: 10;
 }
 
