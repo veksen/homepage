@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
+import type { Match } from "react-router-dom";
 import photos from "../../photos/photos.json";
 import PhotoSlider from "../../components/PhotoSlider";
 import Header from "../../components/Header";
@@ -8,7 +9,7 @@ import EmbeddedMenu from "../../components/EmbeddedMenu";
 import PhotoMenu from "../../components/PhotoMenu";
 
 type Props = {
-  match: any // type me properly please
+  match: Match
 };
 
 type State = {
