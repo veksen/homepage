@@ -107,6 +107,7 @@ class PhotoSlider extends Component {
             const image = require(`../../photos/${photo.filename}`);
             return (
               <div
+                key={photo.filename}
                 className="PhotoSlider__full-photo"
                 style={{ backgroundImage: `url(${image})`, left: `-${currentIndex * 100 - slideOffset}%` }}
               />
