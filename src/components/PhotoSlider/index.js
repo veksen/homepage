@@ -102,7 +102,7 @@ class PhotoSlider extends Component {
           "PhotoSlider--on-last": currentIndex + 1 === photos.length
         })}
       >
-        <div class="PhotoSlider__full">
+        <div className="PhotoSlider__full">
           {photos.map(photo => {
             const image = require(`../../photos/${photo.filename}`);
             return (
