@@ -58,7 +58,7 @@ class PhotoSlider extends Component {
 
   onPan = e => {
     const photoWidth = this.photo.clientWidth;
-    const draggedPercent = e.deltaX * 2 / photoWidth;
+    const draggedPercent = (e.deltaX * 2) / photoWidth;
 
     this.setState({ slideOffset: draggedPercent * 100 });
 
