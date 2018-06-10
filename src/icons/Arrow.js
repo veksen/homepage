@@ -2,7 +2,11 @@
 
 import React from "react";
 
-const Arrow = ({ direction }) => {
+type Props = {
+  direction?: "left" | "right" | "up" | "down"
+};
+
+const Arrow = ({ direction }: Props) => {
   const style = direction === "left" ? { transform: "scaleX(-1)" } : {};
 
   if (direction === "up" || direction === "down") {

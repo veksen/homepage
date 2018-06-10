@@ -3,7 +3,11 @@
 import React, { Component } from "react";
 import logo from "../../logo.png";
 
-class Logo extends Component {
+type Props = {
+  className?: string
+};
+
+class Logo extends Component<Props> {
   render() {
     return (
       <div {...this.props}>

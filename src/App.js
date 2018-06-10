@@ -6,7 +6,7 @@ import "./App.css";
 import MainPage from "./pages/MainPage";
 import PhotoPage from "./pages/PhotoPage";
 
-class App extends Component {
+class App extends Component<{}> {
   render() {
     return (
       <div className="App">

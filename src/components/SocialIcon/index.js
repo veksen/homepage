@@ -4,7 +4,11 @@ import React from "react";
 // import "./style.css";
 import { slugify } from "../../utils";
 
-const SocialIcon = ({ name }) => {
+type Props = {
+  name: string
+};
+
+const SocialIcon = ({ name }: Props) => {
   const slugifiedName = slugify(name);
   const icons = {
     github: (

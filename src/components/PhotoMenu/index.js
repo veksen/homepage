@@ -5,7 +5,14 @@ import { Link } from "react-router-dom";
 import classnames from "classnames";
 import Arrow from "../../icons/Arrow";
 
-class PhotoMenu extends Component {
+type Category = string;
+
+type Props = {
+  categories: Array<Category>,
+  currentCategory: ?Category
+};
+
+class PhotoMenu extends Component<Props> {
   render() {
     const { categories, currentCategory } = this.props;
     return (

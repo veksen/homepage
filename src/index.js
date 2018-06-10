@@ -12,10 +12,15 @@ import registerServiceWorker from "./registerServiceWorker";
 ReactGA.initialize("UA-47549558-1");
 Raven.config("https://6eb0a5f5d9c94df7bbaa61cc21c4f74d@sentry.io/744179").install();
 
+const root = document.getElementById("root");
+if (!root) {
+  throw new Error("could not mount to root, #root not found");
+}
+
 ReactDOM.render(
   <BrowserRouter>
     <App />
   </BrowserRouter>,
-  document.getElementById("root")
+  root
 );
 registerServiceWorker();

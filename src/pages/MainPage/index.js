@@ -6,7 +6,7 @@ import Header from "../../components/Header";
 import Menu from "../../components/Menu";
 import "./style.css";
 
-class MainPage extends Component {
+class MainPage extends Component<{}> {
   render() {
     return (
       <div className="MainPage">

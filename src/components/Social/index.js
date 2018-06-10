@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import "./style.css";
 import SocialLink from "../SocialLink";
 
-class Social extends Component {
+class Social extends Component<{}> {
   render() {
     const socialLinks = [
       { name: "GitHub", link: "https://github.com/veksen" },

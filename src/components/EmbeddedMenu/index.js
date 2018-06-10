@@ -7,13 +7,18 @@ import Cross from "../../icons/Cross";
 import Menu from "../Menu";
 import "./style.css";
 
-class EmbeddedMenu extends Component {
-  constructor() {
-    super();
-    this.state = {
-      opened: false
-    };
-  }
+type State = {
+  opened: boolean
+};
+
+type Props = {
+  className?: string
+};
+
+class EmbeddedMenu extends Component<Props, State> {
+  state: State = {
+    opened: false
+  };
 
   open() {
     this.setState({ opened: !this.state.opened });

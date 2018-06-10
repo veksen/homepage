@@ -7,7 +7,12 @@ import "./style.css";
 import Logo from "../Logo";
 import EmbeddedMenu from "../EmbeddedMenu";
 
-class Header extends Component {
+type Props = {
+  children?: any,
+  className?: string
+};
+
+class Header extends Component<Props> {
   render() {
     return (
       <div {...this.props} className={classnames("Header", this.props.className)}>

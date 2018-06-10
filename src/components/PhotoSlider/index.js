@@ -7,15 +7,37 @@ import "./style.css";
 import Arrow from "../../icons/Arrow";
 import PhotoSettings from "../PhotoSettings";
 
-class PhotoSlider extends Component {
-  constructor() {
-    super();
-    this.state = {
-      currentIndex: 0,
-      showSettings: false,
-      slideOffset: 0
-    };
+type Photo = {
+  filename: string,
+  category: string,
+  settings: {
+    focalLength: string,
+    apertureSpeed: string,
+    apertureLength: string,
+    iso: string,
+    lens: string
   }
+};
+
+type Props = {
+  photos: Array<Photo>
+};
+
+type State = {
+  currentIndex: number,
+  showSettings: boolean,
+  slideOffset: number
+};
+
+class PhotoSlider extends Component<Props, State> {
+  state: State = {
+    currentIndex: 0,
+    showSettings: false,
+    slideOffset: 0
+  };
+
+  photo: Element;
+  hammerComponent: Element;
 
   componentDidMount() {
     document.addEventListener("keydown", e => {
@@ -58,7 +80,7 @@ class PhotoSlider extends Component {
     }
   };
 
-  onPan = e => {
+  onPan = (e: WheelEvent) => {
     const photoWidth = this.photo.clientWidth;
     const draggedPercent = (e.deltaX * 2) / photoWidth;
 
@@ -77,7 +99,7 @@ class PhotoSlider extends Component {
     }
   };
 
-  onPanEnd = e => {
+  onPanEnd = (e: WheelEvent) => {
     this.setState({ slideOffset: 0 });
   };
 

@@ -7,7 +7,12 @@ import SocialIcon from "../SocialIcon";
 import { slugify } from "../../utils";
 import Arrow from "../../icons/Arrow";
 
-class SocialLink extends Component {
+type Props = {
+  link: string,
+  name: string
+};
+
+class SocialLink extends Component<Props> {
   render() {
     const { link, name } = this.props;
     const slugifiedName = slugify(name);

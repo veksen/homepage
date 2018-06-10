@@ -7,15 +7,20 @@ import Header from "../../components/Header";
 import EmbeddedMenu from "../../components/EmbeddedMenu";
 import PhotoMenu from "../../components/PhotoMenu";
 
-class PhotoPage extends Component {
-  constructor() {
-    super();
-    this.state = {
-      currentCategory: null
-    };
-  }
+type Props = {
+  match: any // type me properly please
+};
 
-  componentWillReceiveProps(nextProps) {
+type State = {
+  currentCategory: ?string
+};
+
+class PhotoPage extends Component<Props, State> {
+  state: State = {
+    currentCategory: null
+  };
+
+  componentWillReceiveProps(nextProps: Props) {
     this.setState({
       currentCategory: nextProps.match.params.category || null
     });
