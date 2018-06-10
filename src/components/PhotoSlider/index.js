@@ -25,6 +25,14 @@ class PhotoSlider extends Component {
         case "ArrowRight":
           this.next();
           break;
+
+        case "ArrowUp":
+          this.showSettings();
+          break;
+
+        case "ArrowDown":
+          this.hideSettings();
+          break;
       }
     });
   }
@@ -68,6 +76,14 @@ class PhotoSlider extends Component {
   onPanEnd = e => {
     this.setState({ slideOffset: 0 });
   };
+
+  showSettings() {
+    this.setState({ showSettings: true });
+  }
+
+  hideSettings() {
+    this.setState({ showSettings: false });
+  }
 
   toggleSettings() {
     this.setState({ showSettings: !this.state.showSettings });
