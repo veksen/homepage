@@ -103,6 +103,14 @@
   margin-left: 55px;
 }
 
+.Header__menu-item--back {
+  transition: opacity 0.2s;
+}
+
+.Header__menu-item--back:hover {
+  opacity: 0.6;
+}
+
 .Header__menu-item--back svg {
   width: 15px;
   height: 15px;
