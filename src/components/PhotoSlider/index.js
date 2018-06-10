@@ -15,6 +15,20 @@ class PhotoSlider extends Component {
     };
   }
 
+  componentDidMount() {
+    document.addEventListener("keydown", e => {
+      switch (e.code) {
+        case "ArrowLeft":
+          this.previous();
+          break;
+
+        case "ArrowRight":
+          this.next();
+          break;
+      }
+    });
+  }
+
   previous = () => {
     const { currentIndex } = this.state;
 
