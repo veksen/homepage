@@ -17,6 +17,7 @@ class PhotoSlider extends Component {
 
   componentDidMount() {
     document.addEventListener("keydown", e => {
+      /* eslint-disable default-case */
       switch (e.code) {
         case "ArrowLeft":
           this.previous();
@@ -34,6 +35,7 @@ class PhotoSlider extends Component {
           this.hideSettings();
           break;
       }
+      /* eslint-enable default-case */
     });
   }
 
