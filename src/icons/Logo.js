@@ -15,7 +15,7 @@ const Logo = ({ className }: Props) => {
       style={{ width: "200px" }}
     >
       <defs />
-      <path id="Layer_7" fill="#d71b1b" d="M27.72 0h262.05v262.05H27.72z" />
+      <path fill="#d71b1b" d="M27.72 0h262.05v262.05H27.72z" />
       <g id="JP">
         <path d="M201.08 62.49l28.49 12.48L147.62 262l-33.97.05 87.43-199.56z" fill="#ffffff" />
         <path
