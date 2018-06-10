@@ -1,7 +1,6 @@
 // @flow
 
 import React from "react";
-// import "./style.css";
 import { slugify } from "../../utils";
 
 type Props = {
