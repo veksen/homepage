@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 import Contact from "../components/Contact"
 import Container from "../components/Container"
@@ -11,12 +11,27 @@ const Main = styled.main`
   display: flex;
 `
 
+const slidein = keyframes`
+  from {
+    opacity: 0;
+    top: -150px;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+`
+
 const Sidebar = styled.aside`
+  opacity: 0;
+  position: relative;
   flex: 0 0 291px;
   margin-top: -64px;
   padding-left: 50px;
   display: flex;
   align-items: flex-start;
+  z-index: 5;
+  animation: 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 1s forwards ${slidein};
 `
 
 const Content = styled.div`

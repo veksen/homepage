@@ -1,16 +1,29 @@
 import useWindowScrollPosition from "@rehooks/window-scroll-position"
 import { Link } from "gatsby"
 import React from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import iconHeart from "../images/icon-heart.png"
 import iconPhotography from "../images/icon-photography.png"
 import iconWebDev from "../images/icon-webdev.png"
+import FadedLogoSVG from "../images/jp-faded.svg"
 import Logo from "../images/logo.png"
 import Container from "./Container"
+
+const slidein = keyframes`
+  from {
+    opacity: 0;
+    top: -150px;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+`
 
 const HeaderWrapper = styled.header``
 
 const HeaderInner = styled.div`
+  position: relative;
   padding-top: 50px;
   padding-bottom: 64px;
   display: flex;
@@ -23,6 +36,8 @@ const LogoWrapper = styled.div`
   position: relative;
   left: -50px;
   width: 274px;
+  z-index: 2;
+  animation: 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) ${slidein};
 `
 
 const StyledLogo = styled.img`
@@ -30,9 +45,13 @@ const StyledLogo = styled.img`
 `
 
 const Content = styled.div`
+  opacity: 0;
+  position: relative;
   margin-top: 100px;
   font-size: 40px;
   line-height: 1;
+  z-index: 2;
+  animation: 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards ${slidein};
 
   ul {
     margin: 64px 0 0 64px;
@@ -44,6 +63,14 @@ const Content = styled.div`
     display: flex;
     align-items: center;
   }
+`
+
+const FadedBG = styled(FadedLogoSVG)`
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
 `
 
 const Icon = styled.img`
@@ -89,6 +116,7 @@ const Header = (): JSX.Element => {
               </li>
             </ul>
           </Content>
+          <FadedBG />
         </HeaderInner>
       </Container>
     </HeaderWrapper>
