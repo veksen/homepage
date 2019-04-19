@@ -12,7 +12,7 @@ import Container from "./Container"
 const slidein = keyframes`
   from {
     opacity: 0;
-    top: -150px;
+    top: -75px;
   }
   to {
     opacity: 1;
@@ -37,7 +37,7 @@ const LogoWrapper = styled.div`
   left: -50px;
   width: 274px;
   z-index: 2;
-  animation: 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) ${slidein};
+  animation: 0.75s cubic-bezier(0.645, 0.045, 0.355, 1) ${slidein};
 `
 
 const StyledLogo = styled.img`
@@ -51,7 +51,8 @@ const Content = styled.div`
   font-size: 40px;
   line-height: 1;
   z-index: 2;
-  animation: 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards ${slidein};
+  animation: 0.75s cubic-bezier(0.645, 0.045, 0.355, 1) 0.25s forwards
+    ${slidein};
 
   ul {
     margin: 64px 0 0 64px;

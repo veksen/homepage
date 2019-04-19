@@ -14,7 +14,7 @@ const Main = styled.main`
 const slidein = keyframes`
   from {
     opacity: 0;
-    top: -150px;
+    top: -75px;
   }
   to {
     opacity: 1;
@@ -31,7 +31,7 @@ const Sidebar = styled.aside`
   display: flex;
   align-items: flex-start;
   z-index: 5;
-  animation: 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 1s forwards ${slidein};
+  animation: 0.75s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards ${slidein};
 `
 
 const Content = styled.div`
