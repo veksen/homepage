@@ -106,14 +106,14 @@ const Header = (): JSX.Element => {
 
             <ul>
               <li>
-                Web Dev <Icon src={iconWebDev} />
+                Web dev <Icon src={iconWebDev} />
               </li>
               <li>
-                Sports Photographer <Icon src={iconPhotography} />
+                Sports photographer <Icon src={iconPhotography} />
               </li>
               <li>
                 Eternal <Icon src={iconHeart} />
-                for Design
+                for design
               </li>
             </ul>
           </Content>
