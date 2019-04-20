@@ -1,4 +1,4 @@
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, navigate, StaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
 import styled from "styled-components"
@@ -98,7 +98,10 @@ const PhotoGallery = (): JSX.Element => {
         return (
           <PhotoGalleryWrapper>
             {photos.edges.map(({ photo }) => (
-              <PhotoWrapper key={photo.name}>
+              <PhotoWrapper
+                onClick={() => navigate("/photos")}
+                key={photo.name}
+              >
                 <Img fluid={photo.childImageSharp.fluid} />
                 <Hover>
                   <Zoom>
