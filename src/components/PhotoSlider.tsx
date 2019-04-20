@@ -1,6 +1,47 @@
 import { graphql, StaticQuery } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
+import Arrow, { ArrowWrapper } from "./Arrow"
+
+const PreviousNext = styled.div`
+  cursor: pointer;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(180deg, #ff3418 0%, #ca1f08 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 10px;
+
+  ${ArrowWrapper} {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+  }
+`
+
+const Previous = styled(PreviousNext)`
+  left: 22px;
+
+  ${ArrowWrapper} {
+    left: -2px;
+  }
+`
+
+const Next = styled(PreviousNext)`
+  right: 22px;
+
+  ${ArrowWrapper} {
+    right: -2px;
+  }
+`
 
 const PhotoSliderWrapper = styled.div`
   top: 0;
@@ -9,6 +50,10 @@ const PhotoSliderWrapper = styled.div`
   bottom: 0;
   position: fixed;
   overflow: hidden;
+
+  &:hover ${PreviousNext} {
+    opacity: 1;
+  }
 `
 
 const PhotosOuterWrapper = styled.div`
@@ -84,53 +129,82 @@ interface PhotosQuery {
   }
 }
 
-const PhotoSlider = (): JSX.Element => {
+const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const previous = () => {
+    if (currentIndex !== 0) {
+      setCurrentIndex(currentIndex - 1)
+    }
+  }
+
+  const next = () => {
+    if (currentIndex + 1 < photos.edges.length) {
+      setCurrentIndex(currentIndex + 1)
+    }
+  }
+
   return (
-    <StaticQuery
-      query={graphql`
-        query {
-          photos: allFile(filter: { sourceInstanceName: { eq: "photos" } }) {
-            edges {
-              photo: node {
-                name
-                childImageSharp {
-                  fluid(maxWidth: 2000, quality: 60) {
-                    ...GatsbyImageSharpFluid
-                  }
+    <PhotoSliderWrapper>
+      <BackgroundPhotos>
+        {photos &&
+          photos.edges &&
+          photos.edges.length &&
+          photos.edges.map(({ photo }) => (
+            <PhotoBlurred
+              key={photo.name}
+              style={{
+                backgroundImage: `url(${photo.childImageSharp.fluid.base64})`,
+                left: `-${currentIndex * 100}%`,
+              }}
+            />
+          ))}
+      </BackgroundPhotos>
+
+      <Previous onClick={previous}>
+        <Arrow direction="left" />
+      </Previous>
+      <Next onClick={next}>
+        <Arrow direction="right" />
+      </Next>
+
+      <PhotosOuterWrapper>
+        {photos &&
+          photos.edges &&
+          photos.edges.length &&
+          photos.edges.map(({ photo }) => (
+            <PhotoWrapper
+              key={photo.name}
+              style={{ left: `-${currentIndex * 100}%` }}
+            >
+              <Photo src={photo.childImageSharp.fluid.src} />
+            </PhotoWrapper>
+          ))}
+      </PhotosOuterWrapper>
+    </PhotoSliderWrapper>
+  )
+}
+
+const PhotoSlider = (): JSX.Element => (
+  <StaticQuery
+    query={graphql`
+      query {
+        photos: allFile(filter: { sourceInstanceName: { eq: "photos" } }) {
+          edges {
+            photo: node {
+              name
+              childImageSharp {
+                fluid(maxWidth: 2000, quality: 60) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
           }
         }
-      `}
-      render={({ photos }: PhotosQuery) => {
-        return (
-          <PhotoSliderWrapper>
-            <BackgroundPhotos>
-              {photos.edges.map(({ photo }) => (
-                <PhotoBlurred
-                  key={photo.name}
-                  style={{
-                    backgroundImage: `url(${
-                      photo.childImageSharp.fluid.base64
-                    })`,
-                  }}
-                />
-              ))}
-            </BackgroundPhotos>
-
-            <PhotosOuterWrapper>
-              {photos.edges.map(({ photo }) => (
-                <PhotoWrapper key={photo.name}>
-                  <Photo src={photo.childImageSharp.fluid.src} />
-                </PhotoWrapper>
-              ))}
-            </PhotosOuterWrapper>
-          </PhotoSliderWrapper>
-        )
-      }}
-    />
-  )
-}
+      }
+    `}
+    render={({ photos }: PhotosQuery) => <BasePhotoSlider photos={photos} />}
+  />
+)
 
 export default PhotoSlider
