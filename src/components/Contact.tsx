@@ -114,7 +114,11 @@ const Contact = (): JSX.Element => {
       <Title>Stalk me!</Title>
 
       {platforms.map(platform => (
-        <Platform href={platform.link} color={platform.color}>
+        <Platform
+          href={platform.link}
+          color={platform.color}
+          key={platform.name}
+        >
           <SocialIconRegular icon={platform.icon} />
           <SocialIconHover icon={platform.icon} />
           <Arrow />
