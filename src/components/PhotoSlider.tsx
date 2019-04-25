@@ -139,14 +139,22 @@ const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
   // TODO: there has to be a better way...
   const [lastSwipe, setLastSwipe] = useState<number | null>(null)
 
+  const isFirst = () => {
+    return currentIndex === 0
+  }
+
+  const isLast = () => {
+    return currentIndex + 1 === photos.edges.length
+  }
+
   const previous = () => {
-    if (currentIndex !== 0) {
+    if (!isFirst()) {
       setCurrentIndex(curr => curr - 1)
     }
   }
 
   const next = () => {
-    if (currentIndex + 1 < photos.edges.length) {
+    if (!isLast()) {
       setCurrentIndex(curr => curr + 1)
     }
   }
@@ -224,12 +232,16 @@ const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
           ))}
       </BackgroundPhotos>
 
-      <Previous onClick={previous}>
-        <Arrow direction="left" />
-      </Previous>
-      <Next onClick={next}>
-        <Arrow direction="right" />
-      </Next>
+      {!isFirst() && (
+        <Previous onClick={previous}>
+          <Arrow direction="left" />
+        </Previous>
+      )}
+      {!isLast() && (
+        <Next onClick={next}>
+          <Arrow direction="right" />
+        </Next>
+      )}
 
       <Swipeable
         onSwiping={eventData => onSwiping(eventData)}
