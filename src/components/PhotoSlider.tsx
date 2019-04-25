@@ -141,13 +141,13 @@ const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
 
   const previous = () => {
     if (currentIndex !== 0) {
-      setCurrentIndex(currentIndex - 1)
+      setCurrentIndex(curr => curr - 1)
     }
   }
 
   const next = () => {
     if (currentIndex + 1 < photos.edges.length) {
-      setCurrentIndex(currentIndex + 1)
+      setCurrentIndex(curr => curr + 1)
     }
   }
 
