@@ -1,5 +1,6 @@
 import { graphql, StaticQuery } from "gatsby"
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
+import { EventData, Swipeable, SwipeableOptions } from "react-swipeable"
 import styled from "styled-components"
 import Arrow, { ArrowWrapper } from "./Arrow"
 
@@ -82,6 +83,8 @@ const PhotoWrapper = styled.div`
 `
 
 const Photo = styled.img`
+  pointer-events: none;
+  user-select: none;
   display: block;
   max-width: 100%;
   max-height: 100%;
@@ -130,7 +133,11 @@ interface PhotosQuery {
 }
 
 const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
+  const photoEl = useRef<HTMLImageElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [slideOffset, setSlideOffset] = useState(0)
+  // TODO: there has to be a better way...
+  const [lastSwipe, setLastSwipe] = useState<number | null>(null)
 
   const previous = () => {
     if (currentIndex !== 0) {
@@ -144,6 +151,44 @@ const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
     }
   }
 
+  const resetSwipe = () => {
+    const now = new Date().getTime()
+    setSlideOffset(0)
+    setLastSwipe(now)
+  }
+
+  const onSwiping = (e: EventData) => {
+    const now = new Date().getTime()
+
+    if (lastSwipe && now - lastSwipe < 250) {
+      return
+    }
+
+    const photoWidth = (photoEl.current as Element).clientWidth
+    const draggedPercent = (e.deltaX * 2) / photoWidth
+
+    setSlideOffset(draggedPercent * 100)
+
+    if (draggedPercent < -0.3333) {
+      resetSwipe()
+      next()
+    }
+
+    if (draggedPercent > 0.3333) {
+      resetSwipe()
+      previous()
+    }
+  }
+
+  const onSwipeEnd = () => {
+    setSlideOffset(0)
+  }
+
+  const swipeConfig: SwipeableOptions = {
+    trackTouch: true,
+    trackMouse: true,
+  }
+
   return (
     <PhotoSliderWrapper>
       <BackgroundPhotos>
@@ -155,7 +200,7 @@ const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
               key={photo.name}
               style={{
                 backgroundImage: `url(${photo.childImageSharp.fluid.base64})`,
-                left: `-${currentIndex * 100}%`,
+                left: `-${currentIndex * 100 - slideOffset}%`,
               }}
             />
           ))}
@@ -168,19 +213,25 @@ const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
         <Arrow direction="right" />
       </Next>
 
-      <PhotosOuterWrapper>
-        {photos &&
-          photos.edges &&
-          photos.edges.length &&
-          photos.edges.map(({ photo }) => (
-            <PhotoWrapper
-              key={photo.name}
-              style={{ left: `-${currentIndex * 100}%` }}
-            >
-              <Photo src={photo.childImageSharp.fluid.src} />
-            </PhotoWrapper>
-          ))}
-      </PhotosOuterWrapper>
+      <Swipeable
+        onSwiping={eventData => onSwiping(eventData)}
+        onSwiped={onSwipeEnd}
+        {...swipeConfig}
+      >
+        <PhotosOuterWrapper>
+          {photos &&
+            photos.edges &&
+            photos.edges.length &&
+            photos.edges.map(({ photo }) => (
+              <PhotoWrapper
+                key={photo.name}
+                style={{ left: `-${currentIndex * 100 - slideOffset}%` }}
+              >
+                <Photo src={photo.childImageSharp.fluid.src} ref={photoEl} />
+              </PhotoWrapper>
+            ))}
+        </PhotosOuterWrapper>
+      </Swipeable>
     </PhotoSliderWrapper>
   )
 }

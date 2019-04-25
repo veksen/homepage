@@ -961,6 +961,13 @@
     "@types/prop-types" "*"
     "@types/react" "*"
 
+"@types/react-swipeable@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@types/react-swipeable/-/react-swipeable-4.3.0.tgz#e6ea299ec7e2c826a22ae5b6cdfcb1533397487d"
+  integrity sha512-ZBpazpHerohJrup7BvHP97eLPKM95QY40yqMOTYFcKnyexZdZCBW5jHcIBSccwDMBvlTZMiwZ4YKkq4DjPHd4A==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*":
   version "16.8.13"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.13.tgz#a82b15aad9ab91c40edca0d6889b7745ae24f053"
@@ -9038,6 +9045,13 @@ react-side-effect@^1.1.0:
   dependencies:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
+
+react-swipeable@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-5.2.0.tgz#a748fd963fe0ebe728e2a5787cb7d7a13929425e"
+  integrity sha512-hufLqGbdhV27gJ5HI/D2bHSFvGYSOUA2rnDIdWVFMDkAbuDrnWQo1z0qy+ti3VeFe1D6RmVD0r/4yA1bNSHO8w==
+  dependencies:
+    prop-types "^15.6.2"
 
 react@^16.8.6:
   version "16.8.6"
