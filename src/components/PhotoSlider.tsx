@@ -1,5 +1,5 @@
 import { graphql, StaticQuery } from "gatsby"
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { EventData, Swipeable, SwipeableOptions } from "react-swipeable"
 import styled from "styled-components"
 import Arrow, { ArrowWrapper } from "./Arrow"
@@ -150,6 +150,24 @@ const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
       setCurrentIndex(currentIndex + 1)
     }
   }
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      switch (e.code) {
+        case "ArrowLeft":
+          previous()
+          break
+
+        case "ArrowRight":
+          next()
+          break
+      }
+    }
+
+    document.addEventListener("keydown", handler)
+
+    return () => document.removeEventListener("keydown", handler)
+  }, [currentIndex])
 
   const resetSwipe = () => {
     const now = new Date().getTime()
