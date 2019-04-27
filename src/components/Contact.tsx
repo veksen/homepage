@@ -163,9 +163,7 @@ const Contact = (): JSX.Element => {
         <Platform href={link} color={color} key={name}>
           <SocialIconRegular icon={icon} />
           <SocialIconHover icon={icon} />
-          {quickLink && (
-            <SocialQuickLinkMobile>{quickLink}</SocialQuickLinkMobile>
-          )}
+          <SocialQuickLinkMobile>{quickLink}</SocialQuickLinkMobile>
           <Arrow />
         </Platform>
       ))}
