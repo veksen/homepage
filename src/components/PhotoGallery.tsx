@@ -162,7 +162,8 @@ const GalleryMobile = ({ photos }: PhotosQuery) => (
 )
 
 const PhotoGallery = (): JSX.Element => {
-  const isMobile = useWindowWidth() <= 768
+  const windowWidth = useWindowWidth()
+  const isMobile = windowWidth <= 768
 
   return (
     <StaticQuery
@@ -183,6 +184,11 @@ const PhotoGallery = (): JSX.Element => {
         }
       `}
       render={({ photos }: PhotosQuery) => {
+        // necessary on first load, because Gatsby cannot build/compute window.innerWidth
+        if (!windowWidth) {
+          return null
+        }
+
         if (isMobile) {
           return <GalleryMobile photos={photos} />
         }
