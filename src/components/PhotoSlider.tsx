@@ -158,14 +158,14 @@ const BasePhotoSlider = ({
   const previous = () => {
     if (!isFirst()) {
       setCurrentIndex(curr => curr - 1)
-      window.history.replaceState(null, "", `/photos/${currentIndex - 1}`)
+      window.history.replaceState(null, "", `/photos/${currentIndex}`)
     }
   }
 
   const next = () => {
     if (!isLast()) {
       setCurrentIndex(curr => curr + 1)
-      window.history.replaceState(null, "", `/photos/${currentIndex + 1}`)
+      window.history.replaceState(null, "", `/photos/${currentIndex + 2}`)
     }
   }
 

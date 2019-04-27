@@ -116,7 +116,7 @@ const Gallery = ({ photos }: PhotosQuery) => (
   <PhotoGalleryWrapper>
     {photos.edges.map(({ photo }, index) => (
       <PhotoWrapper
-        onClick={() => navigate(`/photos/${index}`)}
+        onClick={() => navigate(`/photos/${index + 1}`)}
         key={photo.name}
       >
         <Img fluid={photo.childImageSharp.fluid} />

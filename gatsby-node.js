@@ -45,7 +45,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     result.data.photos.edges.forEach(({ photo }, i) => {
       createPage({
-        path: `/photos/${i}`,
+        path: `/photos/${i + 1}`,
         component: photoPage,
         context: {
           photo: {
