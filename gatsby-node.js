@@ -1,3 +1,6 @@
+const { graphql } = require("gatsby")
+const path = require("path")
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -19,4 +22,38 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       },
     })
   }
+}
+
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
+  const photoPage = path.resolve("src/pages/photos.tsx")
+
+  return graphql(`
+    {
+      photos: allFile(filter: { sourceInstanceName: { eq: "photos" } }) {
+        edges {
+          photo: node {
+            name
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors)
+    }
+
+    result.data.photos.edges.forEach(({ photo }, i) => {
+      createPage({
+        path: `/photos/${i}`,
+        component: photoPage,
+        context: {
+          photo: {
+            name: photo.name,
+            i,
+          },
+        },
+      })
+    })
+  })
 }

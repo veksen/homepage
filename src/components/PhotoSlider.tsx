@@ -4,6 +4,10 @@ import { EventData, Swipeable, SwipeableOptions } from "react-swipeable"
 import styled from "styled-components"
 import Arrow, { ArrowWrapper } from "./Arrow"
 
+interface PhotoSliderProps {
+  at?: string
+}
+
 const PreviousNext = styled.div`
   cursor: pointer;
   z-index: 3;
@@ -132,8 +136,12 @@ interface PhotosQuery {
   }
 }
 
-const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
+const BasePhotoSlider = ({
+  photos,
+  at,
+}: PhotosQuery & { at?: string }): JSX.Element => {
   const photoEl = useRef<HTMLImageElement>(null)
+  const [directAt, setDirectAt] = useState<string | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [slideOffset, setSlideOffset] = useState(0)
   // TODO: there has to be a better way...
@@ -150,14 +158,30 @@ const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
   const previous = () => {
     if (!isFirst()) {
       setCurrentIndex(curr => curr - 1)
+      window.history.replaceState(null, "", `/photos/${currentIndex - 1}`)
     }
   }
 
   const next = () => {
     if (!isLast()) {
       setCurrentIndex(curr => curr + 1)
+      window.history.replaceState(null, "", `/photos/${currentIndex + 1}`)
     }
   }
+
+  const goToByName = (name: string) => {
+    const index = photos.edges.findIndex(({ photo }) => photo.name === name)
+
+    setCurrentIndex(index)
+    setDirectAt(null)
+  }
+
+  useEffect(() => {
+    if (at && at !== directAt) {
+      setDirectAt(at)
+      goToByName(at)
+    }
+  }, [at, directAt])
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -266,7 +290,7 @@ const BasePhotoSlider = ({ photos }: PhotosQuery): JSX.Element => {
   )
 }
 
-const PhotoSlider = (): JSX.Element => (
+const PhotoSlider = ({ at }: PhotoSliderProps): JSX.Element => (
   <StaticQuery
     query={graphql`
       query {
@@ -284,7 +308,9 @@ const PhotoSlider = (): JSX.Element => (
         }
       }
     `}
-    render={({ photos }: PhotosQuery) => <BasePhotoSlider photos={photos} />}
+    render={({ photos }: PhotosQuery) => (
+      <BasePhotoSlider photos={photos} at={at} />
+    )}
   />
 )
 

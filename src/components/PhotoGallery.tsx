@@ -114,8 +114,11 @@ interface PhotosQuery {
 
 const Gallery = ({ photos }: PhotosQuery) => (
   <PhotoGalleryWrapper>
-    {photos.edges.map(({ photo }) => (
-      <PhotoWrapper onClick={() => navigate("/photos")} key={photo.name}>
+    {photos.edges.map(({ photo }, index) => (
+      <PhotoWrapper
+        onClick={() => navigate(`/photos/${index}`)}
+        key={photo.name}
+      >
         <Img fluid={photo.childImageSharp.fluid} />
         <Hover>
           <Zoom>

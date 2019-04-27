@@ -30,7 +30,16 @@ const StyledLogo = styled.img`
   width: 274px;
 `
 
-const PhotosPage = (): JSX.Element => (
+interface PhotoPageProps {
+  pageContext: {
+    photo: {
+      i: number
+      name: string
+    }
+  }
+}
+
+const PhotosPage = ({ pageContext }: PhotoPageProps): JSX.Element => (
   <Layout>
     <SEO title="Photography" keywords={[`gatsby`, `application`, `react`]} />
 
@@ -40,7 +49,7 @@ const PhotosPage = (): JSX.Element => (
       </Link>
     </LogoWrapper>
 
-    <PhotoSlider />
+    <PhotoSlider at={pageContext.photo && pageContext.photo.name} />
   </Layout>
 )
 
