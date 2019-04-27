@@ -62,6 +62,7 @@ const Content = styled.div`
   opacity: 0;
   position: relative;
   margin-top: 100px;
+  padding-right: 32px;
   font-size: 40px;
   line-height: 1;
   z-index: 2;
@@ -71,6 +72,7 @@ const Content = styled.div`
   @media screen and (max-width: 768px) {
     font-size: 20px;
     margin-top: 32px;
+    padding-right: 0;
   }
 
   p {
