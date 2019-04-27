@@ -10,6 +10,10 @@ import SEO from "../components/SEO"
 
 const Main = styled.main`
   display: flex;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 const slidein = keyframes`
@@ -33,6 +37,12 @@ const Sidebar = styled.aside`
   align-items: flex-start;
   z-index: 5;
   animation: 0.75s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards ${slidein};
+
+  @media screen and (max-width: 768px) {
+    margin-top: 64px;
+    padding-left: 0;
+    flex-basis: auto;
+  }
 `
 
 const Content = styled.div`
@@ -43,6 +53,10 @@ const Content = styled.div`
 const Block = styled.div`
   background: #34353b;
   padding: 48px 64px;
+
+  @media screen and (max-width: 768px) {
+    padding: 32px;
+  }
 
   & + & {
     margin-top: 64px;

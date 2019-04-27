@@ -1,6 +1,6 @@
 import useWindowScrollPosition from "@rehooks/window-scroll-position"
 import { Link } from "gatsby"
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled, { keyframes } from "styled-components"
 import iconHeart from "../images/icon-heart.png"
 import iconPhotography from "../images/icon-photography.png"
@@ -22,12 +22,19 @@ const slidein = keyframes`
 
 const HeaderWrapper = styled.header``
 
-const HeaderInner = styled.div`
+const HeaderInner = styled.div<{ quickListHeight: number }>`
   position: relative;
   padding-top: 50px;
   padding-bottom: 64px;
   display: flex;
   background: #34353b;
+
+  @media screen and (max-width: 768px) {
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-bottom: ${props => props.quickListHeight}px !important;
+    flex-direction: column;
+  }
 `
 
 const LogoWrapper = styled.div`
@@ -38,6 +45,13 @@ const LogoWrapper = styled.div`
   width: 274px;
   z-index: 2;
   animation: 0.75s cubic-bezier(0.645, 0.045, 0.355, 1) ${slidein};
+
+  @media screen and (max-width: 768px) {
+    left: 0;
+    margin-left: calc(0.09489 * -85px);
+    width: 85px;
+    flex-basis: auto;
+  }
 `
 
 const StyledLogo = styled.img`
@@ -54,9 +68,34 @@ const Content = styled.div`
   animation: 0.75s cubic-bezier(0.645, 0.045, 0.355, 1) 0.25s forwards
     ${slidein};
 
-  ul {
-    margin: 64px 0 0 64px;
-    list-style: none;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    margin-top: 32px;
+  }
+
+  p {
+    margin: 0;
+  }
+`
+
+const QuickList = styled.ul`
+  margin: 64px 0 0 64px;
+  list-style: none;
+
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    margin: 32px 0 0 0;
+    background: #fff;
+    color: #34353b;
+    padding: 32px;
+    display: inline-flex;
+    flex-direction: column;
+
+    li + li {
+      @media screen and (max-width: 768px) {
+        margin-top: 8px;
+      }
+    }
   }
 
   li {
@@ -77,6 +116,11 @@ const FadedBG = styled(FadedLogoSVG)`
 const Icon = styled.img`
   width: 50px;
   margin: 0 10px;
+
+  @media screen and (max-width: 768px) {
+    width: 25px;
+    margin: 0 5px;
+  }
 `
 
 const Header = (): JSX.Element => {
@@ -88,10 +132,27 @@ const Header = (): JSX.Element => {
   //     : { x: 0, y: 0 }
   // const scrolled = position.y !== 0
 
+  const [quickListHeight, setQuickListHeight] = useState(0)
+  const quickListEl = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (!quickListEl.current) {
+      return
+    }
+
+    const handleResize = () =>
+      setQuickListHeight((quickListEl.current as HTMLElement).clientHeight)
+    window.addEventListener("resize", handleResize)
+    handleResize()
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  })
+
   return (
     <HeaderWrapper>
       <Container>
-        <HeaderInner>
+        <HeaderInner quickListHeight={quickListHeight}>
           <LogoWrapper>
             <Link to="/">
               <StyledLogo src={Logo} />
@@ -104,7 +165,7 @@ const Header = (): JSX.Element => {
               and GraphQL.
             </p>
 
-            <ul>
+            <QuickList ref={quickListEl}>
               <li>
                 Web dev <Icon src={iconWebDev} />
               </li>
@@ -115,7 +176,7 @@ const Header = (): JSX.Element => {
                 Eternal <Icon src={iconHeart} />
                 for design
               </li>
-            </ul>
+            </QuickList>
           </Content>
           <FadedBG />
         </HeaderInner>

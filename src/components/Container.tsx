@@ -13,6 +13,10 @@ const ContainerWrapper = styled.div`
   width: 100%;
   max-width: 1300px;
 
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
+
   & > :first-child {
     margin-top: 0;
   }
