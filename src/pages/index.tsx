@@ -86,12 +86,6 @@ const IndexPage = (): JSX.Element => (
             <BlockTitle>Photography</BlockTitle>
             <PhotoGallery />
           </Block>
-          <Block>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit harum
-            alias illum, facere, omnis voluptas reprehenderit soluta voluptates
-            inventore cumque id maiores ab iure minima hic eos magnam blanditiis
-            ad?
-          </Block>
         </Content>
       </Main>
     </Container>
