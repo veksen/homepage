@@ -54,6 +54,10 @@ const PhotoWrapper = styled.div`
   position: relative;
   cursor: pointer;
 
+  .gatsby-image-wrapper > div {
+    padding-bottom: 66.6666% !important;
+  }
+
   &:hover {
     outline: 3px solid #fff;
   }
@@ -66,6 +70,10 @@ const PhotoWrapper = styled.div`
 const PhotoWrapperMobile = styled.div`
   flex: 0 0 calc(100% - 16px);
   margin: 0 8px;
+
+  .gatsby-image-wrapper > div {
+    padding-bottom: 66.6666% !important;
+  }
 `
 
 const SeeMoreMobile = styled.div`
