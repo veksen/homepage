@@ -41,7 +41,7 @@ interface PhotoPageProps {
 
 const PhotosPage = ({ pageContext }: PhotoPageProps): JSX.Element => (
   <Layout>
-    <SEO title="Photography" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Photography" />
 
     <LogoWrapper>
       <Link to="/">

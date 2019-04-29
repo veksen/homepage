@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Jean-Philippe Sirois - Web developer`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Web dev, design and sports photography`,
     author: `Jean-Philippe Sirois <jp@veksen.net>`,
   },
   plugins: [

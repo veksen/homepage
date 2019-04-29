@@ -72,7 +72,7 @@ const BlockTitle = styled.h2`
 
 const IndexPage = (): JSX.Element => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Home" />
 
     <Header />
 
