@@ -64,8 +64,8 @@ const PhotoWrapper = styled.div`
 `
 
 const PhotoWrapperMobile = styled.div`
-  flex: 0 0 calc(100% - 28px);
-  margin: 0 14px;
+  flex: 0 0 calc(100% - 16px);
+  margin: 0 8px;
 `
 
 const SeeMoreMobile = styled.div`
@@ -136,8 +136,8 @@ const GalleryMobile = ({ photos }: PhotosQuery) => (
       itemsWide={1}
       style={{ width: "100%" }}
       canvasStyle={{
-        width: "calc(100% - 36px)",
-        padding: "0 18px",
+        width: "calc(100% - 50px)",
+        padding: "0 25px",
       }}
       arrowStyle={{
         marginLeft: "8px",
