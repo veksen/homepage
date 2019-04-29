@@ -61,7 +61,7 @@ const StyledLogo = styled.img`
 const Content = styled.div`
   opacity: 0;
   position: relative;
-  margin-top: 100px;
+  margin-top: 64px;
   padding-right: 32px;
   font-size: 40px;
   line-height: 1;
@@ -77,6 +77,16 @@ const Content = styled.div`
 
   p {
     margin: 0;
+  }
+`
+
+const Title = styled.h1`
+  font-weight: 400;
+  font-size: 40px;
+  margin: 0 0 8px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
   }
 `
 
@@ -161,6 +171,10 @@ const Header = (): JSX.Element => {
             </Link>
           </LogoWrapper>
           <Content>
+            <Title>
+              My name is <b>Jean-Philippe Sirois</b>,
+            </Title>
+
             <p>
               I'm a Web developer specialized in UI and front-end, experienced
               with the whole stack. My current tools of choice are React, Node,
