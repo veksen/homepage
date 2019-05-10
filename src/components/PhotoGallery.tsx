@@ -129,11 +129,11 @@ interface PhotosQuery {
 }
 
 const Gallery = ({ photos }: PhotosQuery) => {
-  const mappedPhotos = photos.edges.map(({ photo }) => ({
+  const mappedPhotos = photos.edges.map(({ photo }, index) => ({
     id: photo.name,
     width: photo.childImageSharp.fluid.presentationWidth,
     height: photo.childImageSharp.fluid.presentationHeight,
-    value: { ...photo },
+    value: { ...photo, index },
   }))
 
   const colCount = 3
@@ -149,9 +149,9 @@ const Gallery = ({ photos }: PhotosQuery) => {
       <PhotoGalleryRow>
         {columns.map((columnPhotos, i) => (
           <PhotoGalleryColumn key={i} colCount={colCount}>
-            {columnPhotos.map(({ value: photo }, index) => (
+            {columnPhotos.map(({ value: photo }) => (
               <PhotoWrapper
-                onClick={() => navigate(`/photos/${index + 1}`)}
+                onClick={() => navigate(`/photos/${photo.index + 1}`)}
                 key={photo.name}
               >
                 <Img fluid={photo.childImageSharp.fluid} />
