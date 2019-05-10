@@ -10484,10 +10484,10 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-swipeable@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-5.2.0.tgz#a748fd963fe0ebe728e2a5787cb7d7a13929425e"
-  integrity sha512-hufLqGbdhV27gJ5HI/D2bHSFvGYSOUA2rnDIdWVFMDkAbuDrnWQo1z0qy+ti3VeFe1D6RmVD0r/4yA1bNSHO8w==
+react-swipeable@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-5.2.1.tgz#92dc8c330efb26c46fca42e60b610d1eb429adbe"
+  integrity sha512-fnVoJQEMAV0zzWR/nXTHLc9BbB0aqa3X74O+PDdPfjWv1F3D+d9PtQZiQMNiZLlli7KO0YU5QX4thqC7xULCHw==
   dependencies:
     prop-types "^15.6.2"
 
