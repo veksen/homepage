@@ -21,7 +21,7 @@
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
     "serve": "gatsby serve",
     "start": "npm run develop",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "jest"
   },
   "dependencies": {
     "@rehooks/window-scroll-position": "github:rehooks/window-scroll-position",
@@ -43,6 +43,7 @@
     "gatsby-plugin-typescript": "^2.0.12",
     "gatsby-source-filesystem": "^2.0.29",
     "gatsby-transformer-sharp": "^2.1.18",
+    "jest": "^24.8.0",
     "polished": "^3.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -55,15 +56,56 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.12",
     "@types/react-helmet": "^5.0.8",
     "@types/react-highlight": "^0.12.1",
     "@types/react-swipeable": "^4.3.0",
     "@types/styled-components": "^4.1.14",
+    "jest-dom": "^3.2.2",
     "prettier": "^1.17.0",
+    "ts-jest": "^24.0.2",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-loader": "^3.5.4",
     "typescript": "^3.4.3"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./setup-jest.js"
+    ],
+    "globals": {
+      "__PATH_PREFIX__": ""
+    },
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(tsx?)$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(gatsby)/)"
+    ],
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
+    "testPathIgnorePatterns": [
+      "node_modules",
+      ".cache"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "moduleNameMapper": {
+      "typeface-*": "identity-obj-proxy",
+      ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
+      ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/file.js"
+    },
+    "collectCoverage": false,
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "html"
+    ]
   }
 }

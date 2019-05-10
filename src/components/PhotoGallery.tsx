@@ -5,6 +5,7 @@ import React from "react"
 import styled from "styled-components"
 import { useWindowWidth } from "../hooks/useWindowWidth"
 import IconSearch from "../images/icon-search.svg"
+import { distributeToColumnByRatio } from "../utils/distributeToColumnByRatio"
 import Arrow from "./Arrow"
 
 const PhotoGalleryWrapper = styled.div`
@@ -18,6 +19,15 @@ const PhotoGalleryWrapper = styled.div`
     width: calc(100% + 64px);
     margin: 0 -32px 36px;
   }
+`
+
+const PhotoGalleryRow = styled.div`
+  width: 100%;
+  display: flex;
+`
+
+const PhotoGalleryColumn = styled.div<{ colCount: number }>`
+  flex: 0 0 ${props => 100 / props.colCount}%;
 `
 
 const Hover = styled.div`
@@ -50,13 +60,9 @@ const ZoomIcon = styled(IconSearch)`
 
 const PhotoWrapper = styled.div`
   flex: 0 0 calc(33.33% - 16px);
-  margin: 8px;
+  margin: 8px 8px 16px;
   position: relative;
   cursor: pointer;
-
-  .gatsby-image-wrapper > div {
-    padding-bottom: 66.6666% !important;
-  }
 
   &:hover {
     outline: 3px solid #fff;
@@ -98,45 +104,70 @@ const SeeMoreMobile = styled.div`
   }
 `
 
-// TODO: extract childImageSharp to fragment?
-interface PhotosQuery {
-  photos: {
-    edges: [
-      {
-        photo: {
-          name: string
-          childImageSharp: {
-            fluid: {
-              aspectRatio: number
-              base64: string
-              sizes: string
-              src: string
-              srcSet: string
-            }
-          }
-        }
+interface PhotoEdge {
+  photo: {
+    name: string
+    childImageSharp: {
+      fluid: {
+        aspectRatio: number
+        presentationWidth: number
+        presentationHeight: number
+        base64: string
+        sizes: string
+        src: string
+        srcSet: string
       }
-    ]
+    }
   }
 }
 
-const Gallery = ({ photos }: PhotosQuery) => (
-  <PhotoGalleryWrapper>
-    {photos.edges.map(({ photo }, index) => (
-      <PhotoWrapper
-        onClick={() => navigate(`/photos/${index + 1}`)}
-        key={photo.name}
-      >
-        <Img fluid={photo.childImageSharp.fluid} />
-        <Hover>
-          <Zoom>
-            <ZoomIcon />
-          </Zoom>
-        </Hover>
-      </PhotoWrapper>
-    ))}
-  </PhotoGalleryWrapper>
-)
+// TODO: extract childImageSharp to fragment?
+interface PhotosQuery {
+  photos: {
+    edges: PhotoEdge[]
+  }
+}
+
+const Gallery = ({ photos }: PhotosQuery) => {
+  const mappedPhotos = photos.edges.map(({ photo }) => ({
+    id: photo.name,
+    width: photo.childImageSharp.fluid.presentationWidth,
+    height: photo.childImageSharp.fluid.presentationHeight,
+    value: { ...photo },
+  }))
+
+  const colCount = 3
+  const columns = distributeToColumnByRatio<PhotoEdge>(
+    mappedPhotos,
+    colCount,
+    250, // 250 is not perfect, but close enough, would need to trigger on window resize
+    16
+  )
+
+  return (
+    <PhotoGalleryWrapper>
+      <PhotoGalleryRow>
+        {columns.map((columnPhotos, i) => (
+          <PhotoGalleryColumn key={i} colCount={colCount}>
+            {columnPhotos.map(({ value: photo }, index) => (
+              <PhotoWrapper
+                onClick={() => navigate(`/photos/${index + 1}`)}
+                key={photo.name}
+              >
+                <Img fluid={photo.childImageSharp.fluid} />
+                <Hover>
+                  <Zoom>
+                    <ZoomIcon />
+                  </Zoom>
+                </Hover>
+              </PhotoWrapper>
+            ))}
+          </PhotoGalleryColumn>
+        ))}
+      </PhotoGalleryRow>
+    </PhotoGalleryWrapper>
+  )
+}
 
 const GalleryMobile = ({ photos }: PhotosQuery) => (
   <PhotoGalleryWrapper>
@@ -186,6 +217,8 @@ const PhotoGallery = (): JSX.Element => {
                 name
                 childImageSharp {
                   fluid(maxWidth: 300, quality: 60) {
+                    presentationWidth
+                    presentationHeight
                     ...GatsbyImageSharpFluid
                   }
                 }
