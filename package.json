@@ -41,7 +41,7 @@
     "gatsby-plugin-tslint": "0.0.2",
     "gatsby-plugin-typescript": "^2.0.13",
     "gatsby-source-filesystem": "^2.0.33",
-    "gatsby-transformer-sharp": "^2.1.18",
+    "gatsby-transformer-sharp": "^2.1.19",
     "jest": "^24.8.0",
     "polished": "^3.2.0",
     "prop-types": "^15.7.2",
