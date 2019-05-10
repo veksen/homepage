@@ -34,8 +34,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Jean-Philippe Sirois - Web developer`,
+        short_name: `veksen.com`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
