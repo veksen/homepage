@@ -30,7 +30,6 @@
     "better-react-swiper": "^0.3.1",
     "gatsby": "^2.3.23",
     "gatsby-image": "^2.0.39",
-    "gatsby-plugin-create-client-paths": "^2.0.5",
     "gatsby-plugin-manifest": "^2.0.29",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-polished": "^1.0.4",
@@ -50,7 +49,6 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-highlight": "^0.12.0",
-    "react-perfect-scrollbar": "^1.5.0",
     "react-swipeable": "^5.2.0",
     "sharp": "^0.22.0",
     "styled-components": "^4.2.0"

@@ -9,10 +9,6 @@ module.exports = {
     `gatsby-plugin-tslint`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/docs/*`] },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
