@@ -49,7 +49,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-highlight": "^0.12.0",
-    "react-swipeable": "^5.2.1",
+    "react-swipeable": "^5.2.2",
     "sharp": "^0.22.1",
     "styled-components": "^4.2.0"
   },
