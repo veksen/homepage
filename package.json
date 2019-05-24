@@ -61,7 +61,7 @@
     "@types/react-highlight": "^0.12.1",
     "@types/react-swipeable": "^4.3.0",
     "@types/styled-components": "^4.1.15",
-    "jest-dom": "^3.2.2",
+    "jest-dom": "^3.3.0",
     "prettier": "^1.17.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
