@@ -45,7 +45,7 @@
     "jest": "^26.2.2",
     "polished": "^3.6.5",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
+    "react": "^16.13.1",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-highlight": "^0.12.0",
