@@ -30,7 +30,7 @@
     "better-react-swiper": "^1.0.0",
     "gatsby": "^2.24.23",
     "gatsby-image": "^2.4.14",
-    "gatsby-plugin-manifest": "^2.1.1",
+    "gatsby-plugin-manifest": "^2.4.21",
     "gatsby-plugin-offline": "^2.1.1",
     "gatsby-plugin-polished": "^1.0.4",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.2",
