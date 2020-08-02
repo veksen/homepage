@@ -43,7 +43,7 @@
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-transformer-sharp": "^2.5.12",
     "jest": "^26.2.2",
-    "polished": "^3.3.2",
+    "polished": "^3.6.5",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
