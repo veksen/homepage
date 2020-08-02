@@ -13408,13 +13408,6 @@ react-side-effect@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.0.tgz#1ce4a8b4445168c487ed24dab886421f74d380d3"
   integrity sha512-IgmcegOSi5SNX+2Snh1vqmF0Vg/CbkycU9XZbOHJlZ6kMzTmi3yc254oB1WCkgA7OQtIAoLmcSFuHTc/tlcqXg==
 
-react-swipeable@^5.2.2:
-  version "5.2.2"
-  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-5.2.2.tgz#bbf1ea72b540e8fb9c6ff626ce3bd0515634c5cf"
-  integrity sha512-d9rPPvI10ECxFmpI5hSo9TtgIjqmXLwXWGrXcss1tCEXm3GZE5w6FUJdmaStVWeSBcPBbZLJp5rvZnMrNR+bNg==
-  dependencies:
-    prop-types "^15.6.2"
-
 react-swipeable@^5.5.1:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-5.5.1.tgz#48ae6182deaf62f21d4b87469b60281dbd7c4a76"
