@@ -63,7 +63,7 @@
     "@types/styled-components": "^5.1.2",
     "jest-dom": "^4.0.0",
     "prettier": "^2.0.5",
-    "ts-jest": "^24.0.2",
+    "ts-jest": "^26.1.4",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
