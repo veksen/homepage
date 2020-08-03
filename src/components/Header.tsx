@@ -177,8 +177,7 @@ const Header = (): JSX.Element => {
 
             <p>
               I'm a Web developer specialized in UI and front-end, experienced
-              with the whole stack. My current tools of choice are React, Node,
-              and GraphQL.
+              with the whole stack. My current tools of choice are React on TypeScript.
             </p>
 
             <QuickList ref={quickListEl}>
