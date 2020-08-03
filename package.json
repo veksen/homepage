@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@rehooks/window-scroll-position": "github:rehooks/window-scroll-position",
+    "@testing-library/jest-dom": "^5.11.2",
     "babel-plugin-polished": "^1.1.0",
     "babel-plugin-styled-components": "^1.11.1",
     "better-react-swiper": "^1.0.0",
@@ -61,7 +62,6 @@
     "@types/react-highlight": "^0.12.2",
     "@types/react-swipeable": "^5.2.0",
     "@types/styled-components": "^5.1.2",
-    "jest-dom": "^4.0.0",
     "prettier": "^2.0.5",
     "ts-jest": "^26.1.4",
     "tslint": "^6.1.3",
